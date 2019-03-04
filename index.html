@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+    <form class="search-form">
+        <input id="search-input" type="text" name="search-input">
+        <button id="submit-button" type="submit" name="search-submit">Szukaj</button>
+    </form>
+    <div id="search-results" class=search-results>     
+    </div>
+</body>
+<script>
+    /*fetch("https://developers.zomato.com/api/v2.1/cities?q=Gdansk&count=10", {
+        method: "GET",
+        headers: {
+            "Accept": "application/json",
+            "user-key": "961e2dcb5435fde8f2fa4f970d94c9f5"
+        }
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+        console.log(resp);
+        resp.items.forEach(book => {
+            console.log(`Tytuł: ${book.volumeInfo.title}`);
+            console.log(`Ilość stron: ${book.volumeInfo.pageCount}`);
+            console.log(`Data publikacji: ${book.volumeInfo.publishedDate}`);
+        })
+    })
+    const url = "https://developers.zomato.com/api/v2.1/search?entity_id=266&entity_type=city&count=10";
+
+    fetch(url, {
+        method: "GET",
+        headers: {
+            "Accept": "application/json",
+            "user-key": "961e2dcb5435fde8f2fa4f970d94c9f5"
+        }
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+        console.log(resp);
+        resp.restaurants.forEach(res => {
+            console.log(res.restaurant.id);
+            console.log(res.restaurant.name);
+            console.log(res.restaurant.photos_url);
+        })
+    })*/
+    const search = document.getElementById('submit-button');
+
+    
+    /*
+    const API_KEY = 'Dx2IcBYjQ1R9rA7e';
+    const artist_name = 'Robyn';
+    fetch(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${API_KEY}&query=${artist_name}`)
+    .then(resp => resp.json())
+    .then(resp => {
+        console.log(resp);
+        console.log(resp.resultsPage.results.artist[0].id, resp.resultsPage.results.artist[0].displayName);
+    });
+    fetch(`https://api.songkick.com/api/3.0/events.json?apikey=${API_KEY}&artist_name=Robyn`)
+    .then(resp => resp.json())
+    .then(resp => {
+        console.log(resp);
+    })*/
+
+    search.addEventListener("click", function search_results(event) {
+        event.preventDefault();
+        const query = document.getElementById('search-input').value;
+        console.log(query);
+    });
+
+    function show-results(events) {
+        const results_box = document.getElementById('search-results');
+        for(let i=0; i<events.length; i++) {
+            const el = document.createElement("div");
+            el.classList.add("result");
+            el.innerText = events[i];
+        }
+    }
+
+</script>
+</html>
