@@ -67,21 +67,24 @@
     .then(resp => {
         console.log(resp);
     })*/
+    const array_example = ['one', 'two', 'three', 'four'];
+
+    function showResults(events_list) {
+        const results_box = document.getElementById('search-results');
+        for(let i=0; i<events_list.length; i++) {
+            const el = document.createElement("div");
+            el.classList.add("result");
+            el.innerText = events_list[i];
+            results_box.appendChild(el);
+        }
+    }
 
     search.addEventListener("click", function search_results(event) {
         event.preventDefault();
         const query = document.getElementById('search-input').value;
         console.log(query);
+        showResults(array_example);
     });
-
-    function show-results(events) {
-        const results_box = document.getElementById('search-results');
-        for(let i=0; i<events.length; i++) {
-            const el = document.createElement("div");
-            el.classList.add("result");
-            el.innerText = events[i];
-        }
-    }
 
 </script>
 </html>
