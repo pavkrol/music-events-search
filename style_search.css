@@ -1,0 +1,121 @@
+.main-container__title--search {
+  font-size: 39px;
+  margin: 0;
+}
+
+.main-container__title--search:before {
+  height: 50px;
+  width: 26px;
+  left: -35px;
+  top: 0;
+}
+
+.main-container--search {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 50px 5% 0 5%;
+    height: calc(100vh - 180px);
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.search-form__input-wrapper {
+    width: 320px;
+    height: 46px;
+    background-color: #393232;
+    border-radius: 23px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-form {
+    display: flex;
+}
+
+.search-form__input-wrapper input {
+    background-color: transparent;
+    color: #6B6868;
+    padding-left: 20px;
+    font-family: "Raleway", sans-serif;
+    font-size: 15px;
+    border: none;
+}
+
+.search-form__input-wrapper button {
+    width: 60px;
+    height: 22px;
+    background-color: transparent;
+    border: none;
+    background-image: url("IMG/search.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-left: 1px solid #6B6868;
+    cursor: pointer;
+}
+
+.search-form__input-wrapper button:hover {
+    background-image: url("IMG/search_white.png");
+}
+
+.search-results {
+    margin-top: 30px;
+    width: 100%;
+    background-color: #393232;
+    border-radius: 15px;
+    color: #393232;
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+.search-results thead {
+    margin: 10px;
+    display: flex;
+    background-color: #CA7F18;
+    border-radius: 7px;
+}
+
+.search-results tbody {
+    background-color: #B6B2B2;
+    margin: 10px;
+    display: flex;
+    border-radius: 7px;
+    flex-wrap: wrap;
+    
+}
+
+.search-results tr {
+    flex-basis: 100%;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    border-bottom: 1px solid #393232;
+}
+
+.search-results th {
+    flex: 1;
+    text-align: left;
+    padding-left: 20px;
+    border-right: 1px solid #393232;
+}
+
+.search-results td{
+    flex: 1;
+    text-align: left;
+    padding-left: 20px;
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    border-right: 1px solid #393232;
+}
+
+.search-results th:last-child, .search-results td:last-child {
+    border-right: none;
+}
+
