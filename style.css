@@ -28,9 +28,8 @@ body {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 280px);
-  padding: 150px 0 0 20% ;
+  padding: 150px 0 0 20%;
   color: var(--main-color);
-  
 }
 
 .main-container__title {
