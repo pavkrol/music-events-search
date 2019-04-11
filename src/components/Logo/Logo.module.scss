@@ -1,0 +1,22 @@
+.logo {
+    margin: 0 0 0 50px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 72px;
+    letter-spacing: 0.16em;
+    position: relative;
+    color: #171570;
+    &Small {
+
+    }
+    &:before {
+        content: "";
+        display: inline-block;
+        background-color: #171570;
+        width: 42px;
+        height: 72px;
+        border-radius: 36px 0px;
+        position: absolute;
+        left: -50px;
+        top: 10px;
+    }
+}
