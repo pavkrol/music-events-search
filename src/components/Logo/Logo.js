@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './Logo.module.scss';
 
 
-const Logo = ({ type, children }) => {
+const Logo = ({ secondary, children }) => {
     return(
         <>
-            { type === 'title' ? (
+            { !secondary ? (
                 <h1 className={styles.logo}>{children}</h1>
             ) : (
                 <h2 className={styles.logoSmall}>{children}</h2>

@@ -1,0 +1,16 @@
+.searchButton {
+  width: 60px;
+  height: 22px;
+  background-color: transparent;
+  border: none;
+  background-image: url("../../assets/images/search.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-left: 1px solid #6b6868;
+  cursor: pointer;
+
+  &:hover {
+    background-image: url("../../assets/images/search_white.png");
+  }
+}

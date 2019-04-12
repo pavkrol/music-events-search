@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => (
     <section className={styles.hero}>
-        <Logo type='title'>eventify</Logo>
+        <Logo>eventify</Logo>
         <h2 className={styles.subtitle}>Find the best concerts in your city</h2>
         <Link className={styles.button} to='/search'>Let's go!</Link>
     </section>
