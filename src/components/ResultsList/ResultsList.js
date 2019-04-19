@@ -3,7 +3,7 @@ import styles from './ResultsList.module.scss';
 
 const ResultsList = ({ items }) => {
     return(
-        <div>{items[0]}</div>
+        <div className={styles.table}>{items.id} {items.name}</div>
     )
 }
 
