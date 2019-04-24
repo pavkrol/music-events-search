@@ -21,14 +21,14 @@ class SearchInput extends React.Component {
     fetch(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${API_KEY}&query=${artist}`)
     .then(resp => resp.json())
     .then(resp => {
-        for (let i=0; i<resp.resultsPage.results.artist.length; i++) {
-          const person ={
-            id: resp.resultsPage.results.artist[i].id,
-            name: resp.resultsPage.results.artist[i].displayName
+      const artist_list = resp.resultsPage.results.artist.map(
+        artist => {
+          return {
+            id: artist.id,
+            name: artist.displayName
           }
-          context.addItem(person);
-        }
-        
+        });
+          context.addItem(artist_list);        
     });
   };
 

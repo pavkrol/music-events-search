@@ -7,14 +7,13 @@ import AppContext from '../../context';
 
 class SearchView extends React.Component {
   state = {
-    searchResults: []
+    searchResults: [],
   };
 
   addItem = (item) => {
-    console.log(item);
     this.setState({
-      searchResults: item
-    })
+      searchResults: item,
+    });
   }
 
   render() {
@@ -33,15 +32,7 @@ class SearchView extends React.Component {
             <SearchInput type="search-city"></SearchInput>
           </header>
           <div className={styles.results}>
-            {
-              this.state.searchResults ?
-              (
-                <ResultsList items={this.state.searchResults}/>
-              ):(
-                <p>There's nothing to show. Please, search for an artist or city to display concerts...</p>
-              )
-              
-            }
+            <ResultsList items={this.state.searchResults}/>
           </div>
         </section>
       </AppContext.Provider>
