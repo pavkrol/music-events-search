@@ -28,7 +28,8 @@ class SearchInput extends React.Component {
             name: artist.displayName
           }
         });
-          context.addItem(artist_list);        
+          context.addItem(artist_list);
+          context.openPopup();        
     });
   };
 

@@ -6,7 +6,11 @@ return (
   <section className={styles.wrapper}>
     <h2 className={styles.title}>There is more than one artist matching your inquiry. Please, choose one of them from the list below:</h2>
     {items.map(item => (
-            <div className={styles.artist_data} key={item.id}>{item.id} {item.name}</div>
+            <ul className={styles.artist_data} key={item.id}>
+                <li className={styles.artist_data__cell}>{item.id}</li> 
+                <li className={styles.artist_data__cell + ' ' + styles.artist_data__center}>{item.name}</li>
+                <li><button className={styles.confirm}>This one</button></li>
+            </ul>
     ))}  
   </section>  
 );}

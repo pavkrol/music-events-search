@@ -1,17 +1,55 @@
 .wrapper {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 50vw;
+    height: 50vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px -10px rgba(#000000, 0.5);
     padding: 10px;
     font-family: 'Raleway', sans-serif;
-    background-color: #B6B2B2;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 3px;
     padding: 15px;
     color: #393232;
     .title {
         font-size: 18px;
         padding-bottom: 10px;
     }
-    .artist_data {
-        font-size: 15px;
-        padding-bottom: 5px;
+    ul {
+        list-style: none;
+        padding-left: 0;
     }
+}
+
+.artist_data {
+    font-size: 15px;
+    padding-bottom: 5px;
+    display: flex;
+    &__cell {
+        
+    }
+    &__center {
+        flex: 1;
+        padding-left: 20px;
+    }
+}
+
+.confirm {
+    border: none;
+    background-color: #118A59;
+    border-radius: 2px;
+    color: white;
+    padding: 5px 10px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.confirm:hover {
+    background-color: #0E5C3C;
 }
 
