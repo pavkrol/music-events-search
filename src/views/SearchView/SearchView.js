@@ -10,6 +10,7 @@ class SearchView extends React.Component {
   state = {
     searchResults: [],
     popupOpen: false,
+    eventResults: [],
   };
 
   addItem = (item) => {
@@ -30,6 +31,31 @@ class SearchView extends React.Component {
     });
   }
 
+  searchEvent = (artist_name) => {
+    const API_KEY = "Dx2IcBYjQ1R9rA7e";
+    fetch(`https://api.songkick.com/api/3.0/events.json?apikey=${API_KEY}&artist_name=${artist_name}`)
+    .then(resp => resp.json())
+    .then(resp => {
+      if(resp.resultsPage.totalEntries) {
+        const events_list = resp.resultsPage.results.event.map(
+          event => {
+            return {
+              id: event.id,
+              artist: artist_name,
+              name: event.displayName,
+              date: event.start.date,
+              city: event.location.city,
+              venue: event.venue.displayName,
+              tickets_link: event.uri,
+            }
+          });
+        this.setState({
+          eventResults: events_list,
+        })
+      }
+    });
+  }
+
   render() {
     const { popupOpen } = this.state;
 
@@ -38,6 +64,7 @@ class SearchView extends React.Component {
       addItem: this.addItem,
       openPopup: this.openPopup,
       closePopup: this.closePopup,
+      searchEvent: this.searchEvent,
     }
 
     return(
@@ -49,7 +76,7 @@ class SearchView extends React.Component {
             <SearchInput type="search-city"></SearchInput>
           </header>
           <div className={styles.results}>
-            <ResultsList items={this.state.searchResults}/>
+            <ResultsList items={this.state.eventResults}/>
           </div>
         </section>
         { popupOpen && <Popup items={this.state.searchResults}/> }

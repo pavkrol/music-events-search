@@ -1,0 +1,30 @@
+.row {
+    color: #B6B2B2;
+    font-size: 15px;
+    border-bottom: 1px solid #B6B2B2;
+    td {
+        padding: 10px 15px 10px 5px;
+    }
+    td:last-child {
+        padding-right: 5px;
+    }
+
+    &:last-child {
+        border-bottom: 0;
+    }
+}
+
+.tickets {
+    background-color: #118A59;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 120px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.tickets:hover {
+    background-color: #0E5C3C;
+}

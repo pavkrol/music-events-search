@@ -1,7 +1,8 @@
 import React from 'react';
+import TableRow from './TableRow';
 import styles from './Table.module.scss';
 
-const Table = ({ items }) => (
+const Table = ({ events }) => (
     <table className={styles.container}>
         <thead className={styles.header}>
           <tr>
@@ -9,14 +10,13 @@ const Table = ({ items }) => (
             <th>City</th>
             <th>Artist</th>
             <th>Venue</th>
-            <th>Availibility</th>
             <th>Buy tickets</th>
           </tr>
         </thead>
         <tbody className={styles.body}>
             {
-                items.forEach(element => (
-                    <TableRow row={element} />
+                events.map(element => (
+                    <TableRow key={element.id}row={element} />
                 ))
             }
         </tbody>

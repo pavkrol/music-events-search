@@ -27,9 +27,13 @@ class SearchInput extends React.Component {
             id: artist.id,
             name: artist.displayName
           }
-        });
-          context.addItem(artist_list);
-          context.openPopup();        
+        });  
+          if(artist_list.length===1) {
+            context.searchEvent(artist);
+          } else {
+            context.addItem(artist_list);
+            context.openPopup();
+          }         
     });
   };
 
