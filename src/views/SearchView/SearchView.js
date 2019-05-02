@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './SearchView.module.scss';
 import Logo from '../../components/Logo/Logo';
 import Popup from '../../components/Popup/Popup';
+import { CSSTransition } from 'react-transition-group';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import ResultsList from '../../components/ResultsList/ResultsList';
 import AppContext from '../../context';
@@ -72,14 +73,23 @@ class SearchView extends React.Component {
         <section className={styles.wrapper}>
           <header className={styles.header}>
             <Logo secondary>eventify</Logo>
-            <SearchInput type="search-artist" submitFn={this.searchArtist}></SearchInput>
+            <SearchInput type="search-artist"></SearchInput>
             <SearchInput type="search-city"></SearchInput>
           </header>
           <div className={styles.results}>
             <ResultsList items={this.state.eventResults}/>
           </div>
         </section>
-        { popupOpen && <Popup items={this.state.searchResults}/> }
+        <CSSTransition
+          in={popupOpen}
+          timeout={300}
+          classNames={{ ...styles }}
+          unmountOnExit
+        >
+          <>
+          { popupOpen && <Popup items={this.state.searchResults}/> }
+          </>
+        </CSSTransition>
       </AppContext.Provider>
     )
   }
