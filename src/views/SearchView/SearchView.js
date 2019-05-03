@@ -12,6 +12,7 @@ class SearchView extends React.Component {
     searchResults: [],
     popupOpen: false,
     eventResults: [],
+    popupType: "",
   };
 
   addItem = (item) => {
@@ -20,9 +21,10 @@ class SearchView extends React.Component {
     });
   }
 
-  openPopup = () => {
+  openPopup = (type) => {
     this.setState({
       popupOpen: true,
+      popupType: type,
     });
   }
 
@@ -32,29 +34,37 @@ class SearchView extends React.Component {
     });
   }
 
-  searchEvent = (artist_name) => {
+  searchEvent = (value, type) => {
     const API_KEY = "Dx2IcBYjQ1R9rA7e";
-    fetch(`https://api.songkick.com/api/3.0/events.json?apikey=${API_KEY}&artist_name=${artist_name}`)
-    .then(resp => resp.json())
-    .then(resp => {
-      if(resp.resultsPage.totalEntries) {
-        const events_list = resp.resultsPage.results.event.map(
-          event => {
-            return {
-              id: event.id,
-              artist: artist_name,
-              name: event.displayName,
-              date: event.start.date,
-              city: event.location.city,
-              venue: event.venue.displayName,
-              tickets_link: event.uri,
-            }
-          });
-        this.setState({
-          eventResults: events_list,
-        })
-      }
-    });
+    if(type==="artist") {
+      fetch(`https://api.songkick.com/api/3.0/events.json?apikey=${API_KEY}&artist_name=${value}`)
+      .then(resp => resp.json())
+      .then(resp => {
+        if(resp.resultsPage.totalEntries) {
+          const events_list = resp.resultsPage.results.event.map(
+            event => {
+              return {
+                id: event.id,
+                artist: value,
+                name: event.displayName,
+                date: event.start.date,
+                city: event.location.city,
+                venue: event.venue.displayName,
+                tickets_link: event.uri,
+              }
+            });
+          this.setState({
+            eventResults: events_list,
+          })
+        }
+      });
+    } else {
+      fetch(`https://api.songkick.com/api/3.0/events.json?apikey=${API_KEY}&location=sk:${value}`)
+      .then(resp => resp.json())
+      .then(resp => {
+        console.log(resp);
+      });
+    }
   }
 
   render() {
@@ -87,7 +97,7 @@ class SearchView extends React.Component {
           unmountOnExit
         >
           <>
-          { popupOpen && <Popup items={this.state.searchResults}/> }
+          { popupOpen && <Popup items={this.state.searchResults} type={this.state.popupType}/> }
           </>
         </CSSTransition>
       </AppContext.Provider>

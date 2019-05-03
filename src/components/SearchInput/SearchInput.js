@@ -29,10 +29,10 @@ class SearchInput extends React.Component {
           }
         });  
           if(artist_list.length===1) {
-            context.searchEvent(artist);
+            context.searchEvent(artist, "artist");
           } else {
             context.addItem(artist_list);
-            context.openPopup();
+            context.openPopup("artist");
           }         
     });
   };
@@ -56,10 +56,10 @@ class SearchInput extends React.Component {
           }
         });
         if(cities_list.length===1) {
-          //search event with this city
+          context.searchEvent(cities_list[0].id)
         } else {
           context.addItem(cities_list);
-          context.openPopup(); //add cities features
+          context.openPopup("city"); //add cities features
         }
         console.log(cities_list);
     });
