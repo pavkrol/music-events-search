@@ -32,3 +32,20 @@
     text-decoration: none;
     box-shadow: 0 3px 12px -5px rgba(#000, .9);
 }
+
+@media screen and (max-width: 1040px) {
+    .hero {
+        padding-top: 100px;
+    }
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .button {
+        width: 180px;
+        height: 50px;
+        border-radius: 25px;
+        font-size: 16px;
+        line-height: 50px;
+    }
+}
