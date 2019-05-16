@@ -57,14 +57,42 @@ class SearchView extends React.Component {
             eventResults: events_list,
           })
         }
+        else {
+          this.setState(
+            {eventResults: []}
+          )
+        }
       });
     } else {
       fetch(`https://api.songkick.com/api/3.0/events.json?apikey=${API_KEY}&location=sk:${value}`)
       .then(resp => resp.json())
       .then(resp => {
         console.log(resp);
+        if(resp.resultsPage.totalEntries) {
+          const events_list = resp.resultsPage.results.event.map(
+            event => {
+              return {
+                id: event.id,
+                artist: event.performance[0].artist.displayName,
+                name: event.displayName,
+                date: event.start.date,
+                city: event.location.city,
+                venue: event.venue.displayName,
+                tickets_link: event.uri,
+              }
+            });
+          this.setState({
+            eventResults: events_list,
+          })
+        }
+        else {
+          this.setState(
+            {eventResults: []}
+          )
+        }
       });
     }
+    
   }
 
   render() {
@@ -94,7 +122,6 @@ class SearchView extends React.Component {
           in={popupOpen}
           timeout={300}
           classNames={{ ...styles }}
-          unmountOnExit
         >
           <>
           { popupOpen && <Popup items={this.state.searchResults} type={this.state.popupType}/> }

@@ -33,4 +33,15 @@
   }
 }
 
+@media screen and (max-width: 1040px) {
+    .logoSmall {
+      flex-basis: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+      &:before {
+        display: none;
+      }
+    }
+}
+
 

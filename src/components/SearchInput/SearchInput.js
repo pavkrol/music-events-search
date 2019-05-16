@@ -44,7 +44,6 @@ class SearchInput extends React.Component {
     fetch(`https://api.songkick.com/api/3.0/search/locations.json?query=${city}&apikey=${API_KEY}`)
     .then(resp => resp.json())
     .then(resp => {
-      console.log(resp);
       const cities_list = resp.resultsPage.results.location.map(
         city => {
           return {
@@ -56,12 +55,11 @@ class SearchInput extends React.Component {
           }
         });
         if(cities_list.length===1) {
-          context.searchEvent(cities_list[0].id)
+          context.searchEvent(cities_list[0].id, "city")
         } else {
           context.addItem(cities_list);
           context.openPopup("city"); //add cities features
         }
-        console.log(cities_list);
     });
   }
 

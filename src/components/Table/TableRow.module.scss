@@ -28,3 +28,9 @@
 .tickets:hover {
     background-color: #0E5C3C;
 }
+
+@media screen and (max-width: 1040px) {
+    .row {
+        font-size: 12px;
+    }
+}
